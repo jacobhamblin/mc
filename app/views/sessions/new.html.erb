@@ -1,0 +1,115 @@
+<div class='signin-bg'></div>
+
+
+<% unless @in_err || @up_err %>
+  <div class='welcome'>
+<% else %>
+  <div class='welcome' style='display: none'>
+<% end %>
+  <p>welcome to</p>
+  <h1>Minecraft Customizer</h1>
+
+  <div class='let-me-in'>
+    <div class='let-signin'>
+      Sign in
+    </div>
+    <div class='let-signup'>
+      Sign up
+    </div>
+  </div>
+</div>
+
+<% unless @in_err %>
+  <div class='entry-area signin' style='display: none;'>
+<% else %>
+  <div class='entry-area signin'>
+<% end %>
+
+  <div class='title'>
+    <h4>Minecraft</h4>
+    <h3>Customizer</h3>
+  </div>
+
+  <div class="errors signin-errors">
+    <% if flash[:errors] %>
+      <% if /Invalid/.match(flash[:errors][0]) %>
+        <% flash[:errors].each do |err| %>
+          <%= err %>
+        <% end %>
+      <% end %>
+    <% end %><br><br>
+  </div>
+
+  <form class='signin-form' action="<%= session_url %>" method="post">
+    <%= auth_token_input %>
+    <input type="text" name="user[username]" placeholder="Username" class="ffield" tabindex="1">
+    <br>
+    <br>
+
+    <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="2">
+    <br>
+    <br>
+
+    <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
+  </form>
+
+</div>
+
+<% unless @up_err %>
+  <div class='entry-area signup' style='display: none;'>
+<% else %>
+  <div class='entry-area signup'>
+<% end %>
+
+  <div class='title'>
+    <h4>Minecraft</h4>
+    <h3>Customizer</h3>
+  </div>
+
+  <div class="errors signup-errors">
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |err| %>
+        <%= err %>
+      <% end %>
+    <% end %><br><br>
+  </div>
+
+  <form class='signup-form' action="<%= users_url %>" method="post">
+    <%= auth_token_input %>
+
+    <input type="text" name="user[email]" placeholder="Email" class="ffield" tabindex="1">
+    <br>
+    <br>
+
+    <input type="text" name="user[username]" placeholder="Username" class="ffield" tabindex="2">
+    <br>
+    <br>
+
+    <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="3">
+    <br>
+    <br>
+
+    <input type="submit" value="Sign Up" class="btn enter" tabindex="4"><br><br>
+  </form>
+
+</div>
+
+<script>
+  $('.let-signin').click(function () {
+    $('.welcome').fadeOut("fast", function() {
+      $('.entry-area.signin').fadeIn("fast");
+    })
+  })
+
+  $('.let-signup').click(function() {
+      $('.entry-area.signup').fadeIn("fast");
+    $('.welcome').fadeOut("fast", function() {
+    })
+  })
+
+  $('.title').click(function() {
+    $('.entry-area').fadeOut("fast", function () {
+      $('.welcome').fadeIn("fast");
+    })
+  })
+</script>
