@@ -145,7 +145,7 @@ body {
 
 
 .signin-bg {
-  background-image: url('https://s3-us-west-1.amazonaws.com/afcojor/layout/spmayb.png');
+  background-image: url('https://s3-us-west-1.amazonaws.com/afcojor/layout/spmaya.png');
   position: absolute;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -159,6 +159,22 @@ body {
   z-index: -1000;
   overflow-y: scroll;
  }
+
+.black-overlay {
+	background-color: #000;
+	position: absolute;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -999;
+	opacity: 0.3; 
+}
 
 .signin-form {
   width: 300px;

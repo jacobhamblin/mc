@@ -1,5 +1,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<div class='black-overlay' style='display: none;'></div>
+
 <div class='signin-bg'></div>
 
 
@@ -98,18 +100,21 @@
 
 <script>
   $('.let-signin').click(function () {
+    $('.black-overlay').fadeIn("slow");
     $('.welcome').fadeOut("fast", function() {
       $('.entry-area.signin').fadeIn("fast");
     })
   })
 
   $('.let-signup').click(function() {
-      $('.entry-area.signup').fadeIn("fast");
+    $('.black-overlay').fadeIn("slow");
     $('.welcome').fadeOut("fast", function() {
+      $('.entry-area.signup').fadeIn("fast");
     })
   })
 
   $('.title').click(function() {
+    $('.black-overlay').fadeOut("fast");
     $('.entry-area').fadeOut("fast", function () {
       $('.welcome').fadeIn("fast");
     })
