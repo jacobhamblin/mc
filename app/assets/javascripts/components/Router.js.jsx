@@ -11,6 +11,6 @@ $(function () {
   );
 
   ReactRouter.run(this.routes, HistoryLocation, function(Handler) {
-    React.render(<Handler/>, document.body);
+    React.render(<Handler/>, document.getElementById('content'));
   });
 });
