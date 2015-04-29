@@ -17,6 +17,11 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, :username, :session_token, uniqueness: true
 
+  has_many :packs
+  has_many :subpacks
+  has_many :pack_images, through: :packs, source: :images
+  has_many :subpack_images, through: :subpacks, source: :images
+
   attr_reader :password
 
   before_validation :ensure_session_token
@@ -29,6 +34,10 @@ class User < ActiveRecord::Base
     user = User.find_by(username: username)
     return nil if user.nil?
     user.is_password?(password) ? user : nil
+  end
+
+  def images
+    self.pack_images + self.subpack_images
   end
 
   def reset_token!
