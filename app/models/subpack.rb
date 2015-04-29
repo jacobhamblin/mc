@@ -16,6 +16,6 @@ class Subpack < ActiveRecord::Base
 
   has_many :subpackings
   has_many :imagings
-  hsa_one :pack, through: :subpackings, source: :pack
+  has_one :pack, through: :subpackings, source: :pack
   has_many :images, through: :imagings, source: :image
 end
