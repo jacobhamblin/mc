@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :images
     resources :packs
     resources :subpacks
+    resources :users
     resources :subpackings, only: [:create, :destroy]
     resources :imagings, only: [:create, :destroy]
   end

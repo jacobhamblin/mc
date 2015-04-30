@@ -1,6 +1,7 @@
-window.PacksIndex = React.createClass({
+window.PacksList = React.createClass({
   propTypes: {
     title: React.PropTypes.string
+
   },
 
   render: function() {

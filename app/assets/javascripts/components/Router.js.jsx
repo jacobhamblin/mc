@@ -4,9 +4,9 @@ $(function () {
   var HistoryLocation = ReactRouter.HistoryLocation;
   var Route = ReactRouter.Route;
   this.routes = (
-    <Route handler={PacksIndex} path='/'>
-      <DefaultRoute handler={PacksIndex} />
-      <Route name="packs" handler={PacksIndex} />
+    <Route handler={PacksList} path='/'>
+      <DefaultRoute handler={PacksList} />
+      <Route name="packs" handler={PacksList} />
     </Route>
   );
 

@@ -9,5 +9,5 @@ json.pack do
 end
 
 json.images do
-  json.extract! pack.images, :id, :url, :description
+  json.extract! subpack.images, :id, :url, :description
 end

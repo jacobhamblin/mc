@@ -16,7 +16,6 @@ Subpacking.create!({subpack_id: 1, pack_id: 1})
 Subpacking.create!({subpack_id: 2, pack_id: 1})
 Subpacking.create!({subpack_id: 3, pack_id: 1})
 
-
 Imaging.create!({subpack_id: 1, image_id: 1})
 Imaging.create!({subpack_id: 1, image_id: 3})
 Imaging.create!({subpack_id: 2, image_id: 2})
