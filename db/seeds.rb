@@ -22,3 +22,4 @@ Image.create!({url: 'http://static.planetminecraft.com/files/resource_media/scre
 Image.create!({url: 'http://i238.photobucket.com/albums/ff232/LikaLaruku/Minecraft%20New/DokucraftTSC02High01.png', imageable_id: 3, imageable_type: 'Subpack'})
 Image.create!({url: 'http://static.planetminecraft.com/files/resource_media/screenshot/1144/4G5QU_534926_779965.jpg', imageable_id: 3, imageable_type: 'Subpack'})
 Image.create!({url: 'http://i.imgur.com/QAFwR.png', imageable_id: 1, imageable_type: 'Subpack'})
+ 

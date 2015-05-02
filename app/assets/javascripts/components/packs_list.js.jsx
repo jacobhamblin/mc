@@ -10,55 +10,56 @@ window.PacksList = React.createClass({
         // the one when the user clicks on an image:
 
         return { packs: [] };
-    },
+  },
 
-    componentDidMount: function(){
+  componentDidMount: function(){
 
-        // When the component loads, send a jQuery AJAX request
+      // When the component loads, send a jQuery AJAX request
 
-        var self = this;
+      var self = this;
 
-        // API endpoint for Instagram's popular images for the day
+      // API endpoint for Instagram's popular images for the day
 
-        var url = 'api/packs';
+      var url = 'api/packs';
 
-        $.getJSON(url, function(result){
+      $.getJSON(url, function(result){
+        debugger
 
-            if(!result || !result.data || !result.data.length){
-                return;
-            }
+          if(!result || !result.packs || !result.packs.length){
+              return;
+          }
 
-            var packs = result.data.map(function(p){
+          var packs = result.packs.map(function(p){
 
-                return {
-                    id: p.id,
-                    title: p.title,
-                    url: p.url,
-                    description: p.description,
-                    createdAt: p.createdAt,
-                    updatedAt: p.updatedAt,
-                    author: p.author,
-                    subpack: p.subpack,
-                    images: p.images
-                };
+              return {
+                  id: p.id,
+                  title: p.title,
+                  url: p.url,
+                  description: p.description,
+                  createdAt: p.createdAt,
+                  updatedAt: p.updatedAt,
+                  author: p.author,
+                  subpack: p.subpack,
+                  images: p.images
+              };
 
-            });
+          });
 
-            // Update the component's state. This will trigger a render.
-            // Note that this only updates the images property, and does
-            // not remove the array.
+          // Update the component's state. This will trigger a render.
+          // Note that this only updates the images property, and does
+          // not remove the array.
 
-            self.setState({ packs: packs });
+          self.setState({ packs: packs });
 
-        });
+      });
 
-    },
+  },
 
   render: function() {
     var self = this;
 
     var packs = this.state.packs.map(function(p){
-        return <Image src={p.url} description={p.description} createdAt={p.createdAt} updatedAt={p.updatedAt} author={p.author} subpack={p.subpack} pack={p.pack} onClick={self.imageClick} />
+        return <ul><li>'url='{p.url}</li> <li>'description='{p.description}</li> <li>'createdAt='{p.createdAt}</li> <li>'updatedAt='{p.updatedAt}</li> <li>'author='{p.author}</li> <li>'subpack='{p.subpack}</li> <li>'pack='{p.pack}</li> <li>'onClick='{self.imageClick}</li></ul>
     });
 
     if(!packs.length){
@@ -67,10 +68,9 @@ window.PacksList = React.createClass({
 
     return (
       <div>
-        <div>Title: {this.props.title}</div>
-        <Pack title="hi" description="lalal" url="http://google.com/" author="doku" className={Pack}>
+        <div className="packs"> {packs} </div>
 
-        </Pack>
+
       </div>
     );
   }
