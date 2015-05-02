@@ -1,16 +1,16 @@
 class Api::SubpacksController < ApplicationController
   def create
-    @subpack = Pack.new(subpack_params)
+    @subpack = Subpack.new(subpack_params)
   end
 
   def index
-    @packs = Pack.all
+    @subpacks = Subpack.all
 
     render :index
   end
 
   def show
-    @subpack = Pack.find(params[:id])
+    @subpack = Subpack.find(params[:id])
     render :show
   end
 

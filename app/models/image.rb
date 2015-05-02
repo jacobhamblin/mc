@@ -2,22 +2,21 @@
 #
 # Table name: images
 #
-#  id          :integer          not null, primary key
-#  url         :string           not null
-#  description :string           default("")
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id             :integer          not null, primary key
+#  url            :string           not null
+#  description    :string           default("")
+#  imageable_id   :integer          not null
+#  imageable_type :string           not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 class Image < ActiveRecord::Base
   validates :url, presence: true
-  has_many :imagings
-  has_one :subpack, through: :imagings, source: :subpack
-  has_one :pack, through: :imagings, source: :pack
-  has_one :subpack_author, through: :subpack, source: :author
-  has_one :pack_author, through: :pack, source: :author
+
+  belongs_to :imageable, polymorphic: true
 
   def author
-    self.pack_author || self.subpack_author
+    self.imageable.author
   end
 end

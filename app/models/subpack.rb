@@ -13,9 +13,6 @@
 
 class Subpack < ActiveRecord::Base
   belongs_to :author, class_name: :User
-
-  has_many :subpackings
-  has_many :imagings
-  has_one :pack, through: :subpackings, source: :pack
-  has_many :images, through: :imagings, source: :image
+  belongs_to :pack
+  has_many :images, as: :imageable
 end

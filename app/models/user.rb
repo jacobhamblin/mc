@@ -17,8 +17,8 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :email, :username, :session_token, uniqueness: true
 
-  has_many :packs
-  has_many :subpacks
+  has_many :packs, foreign_key: :author_id
+  has_many :subpacks, foreign_key: :author_id
   has_many :pack_images, through: :packs, source: :images
   has_many :subpack_images, through: :subpacks, source: :images
 

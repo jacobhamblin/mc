@@ -3,7 +3,6 @@ var Pack = React.createClass({
     title: React.PropTypes.string,
     description: React.PropTypes.string,
     url: React.PropTypes.string,
-    author: React.PropTypes.instanceOf(User),
     subpacks: React.PropTypes.array,
     images: React.PropTypes.array
   },

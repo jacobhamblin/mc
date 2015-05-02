@@ -11,29 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429001607) do
+ActiveRecord::Schema.define(version: 20150429001539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "images", force: :cascade do |t|
-    t.string   "url",                      null: false
-    t.string   "description", default: ""
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "url",                         null: false
+    t.string   "description",    default: ""
+    t.integer  "imageable_id",                null: false
+    t.string   "imageable_type",              null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
-  create_table "imagings", force: :cascade do |t|
-    t.integer  "image_id"
-    t.integer  "pack_id"
-    t.integer  "subpack_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "imagings", ["image_id"], name: "index_imagings_on_image_id", using: :btree
-  add_index "imagings", ["pack_id"], name: "index_imagings_on_pack_id", using: :btree
-  add_index "imagings", ["subpack_id"], name: "index_imagings_on_subpack_id", using: :btree
+  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id", using: :btree
 
   create_table "packs", force: :cascade do |t|
     t.integer  "author_id",                                         null: false
@@ -56,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150429001607) do
 
   create_table "subpacks", force: :cascade do |t|
     t.integer  "author_id",                                               null: false
+    t.integer  "pack_id",                                                 null: false
     t.string   "title",                                                   null: false
     t.text     "description", default: "sweet supplemental super supply"
     t.string   "url",                                                     null: false
