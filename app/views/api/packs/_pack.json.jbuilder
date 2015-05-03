@@ -11,3 +11,7 @@ end
 json.images do
   json.images pack.images, :id, :url, :description
 end
+
+json.all_images do
+  json.all_images pack.all_images, :id, :url, :description
+end

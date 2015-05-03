@@ -17,4 +17,11 @@ class Pack < ActiveRecord::Base
   has_many :images, as: :imageable
   has_many :subpacks
 
+  def all_images
+    all_images = self.images
+    subpacks.each do |s|
+      all_images += s.images
+    end
+    all_images
+  end
 end

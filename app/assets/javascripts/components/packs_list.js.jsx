@@ -23,7 +23,6 @@ window.PacksList = React.createClass({
       var url = 'api/packs';
 
       $.getJSON(url, function(result){
-        debugger
 
           if(!result || !result.packs || !result.packs.length){
               return;
@@ -39,8 +38,8 @@ window.PacksList = React.createClass({
                   createdAt: p.createdAt,
                   updatedAt: p.updatedAt,
                   author: p.author,
-                  subpack: p.subpack,
-                  images: p.images
+                  subpacks: p.subpacks,
+                  images: p.all_images
               };
 
           });
@@ -59,7 +58,9 @@ window.PacksList = React.createClass({
     var self = this;
 
     var packs = this.state.packs.map(function(p){
-        return <ul><li>'url='{p.url}</li> <li>'description='{p.description}</li> <li>'createdAt='{p.createdAt}</li> <li>'updatedAt='{p.updatedAt}</li> <li>'author='{p.author}</li> <li>'subpack='{p.subpack}</li> <li>'pack='{p.pack}</li> <li>'onClick='{self.imageClick}</li></ul>
+        return <ul><li>'url='{p.url}</li> <li>'description='{p.description}</li> <li>'createdAt='{p.createdAt}</li> <li>'updatedAt='{p.updatedAt}</li> <li>'author='{p.author}</li> <li>'subpacks='{p.subpacks}</li>
+        <li>'images='{p.images}</li>
+        </ul>
     });
 
     if(!packs.length){
