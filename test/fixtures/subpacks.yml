@@ -4,6 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  author_id   :integer          not null
+#  pack_id     :integer          not null
 #  title       :string           not null
 #  description :text             default("sweet supplemental super supply")
 #  url         :string           not null

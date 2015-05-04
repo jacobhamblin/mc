@@ -59,7 +59,7 @@ window.PacksList = React.createClass({
 
     var packs = this.state.packs.map(function(p){
         return <ul><li>'url='{p.url}</li> <li>'description='{p.description}</li> <li>'createdAt='{p.createdAt}</li> <li>'updatedAt='{p.updatedAt}</li> <li>'author='{p.author}</li> <li>'subpacks='{p.subpacks}</li>
-        <li>'images='{p.images}</li>
+        <li>'images='{p.images.first}</li>
         </ul>
     });
 
@@ -68,7 +68,8 @@ window.PacksList = React.createClass({
     }
 
     return (
-      <div>
+      <div className='als-container' id='my-als-list'>
+
         <div className="packs"> {packs} </div>
 
 

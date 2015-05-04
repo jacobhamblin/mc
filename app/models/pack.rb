@@ -12,6 +12,8 @@
 #
 
 class Pack < ActiveRecord::Base
+  validates :author_id, :title, :url, :prev, presence: true
+
   belongs_to :author, class_name: :User
 
   has_many :images, as: :imageable

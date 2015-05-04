@@ -1,4 +1,4 @@
-json.extract! subpack, :id, :author_id, :title, :description, :url, :created_at, :updated_at
+json.extract! subpack, :id, :author_id, :title, :description, :url, :created_at, :updated_at, :prev
 
 json.author do
   json.author subpack.author, :id, :username, :email, :avatar
