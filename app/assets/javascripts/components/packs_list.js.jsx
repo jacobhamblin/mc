@@ -71,25 +71,28 @@ window.PacksList = React.createClass({
 
     return (
       <div className='als-container' id='my-als-list'>
-        <span class='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+        <span className='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
         <div className='als-viewport'>
-          <ul class='als-wrapper'>
-            this.state.packs.map(function(p){
-              <li class='als-item'><img src='{p.prev}' /></li>
-            })
+          <ul className='als-wrapper'>
+            { this.state.packs.map(function(p){
+              return <li className='als-item'><img src={p.prev} /></li>
+            }) }
 
           </ul>
         </div>
 
-        <span class='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+        <span className='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
       </div>
 
+
+
+    );
       $(function(){
     		$("#my-als-list").als({
           visible_items: 1, scrolling_items: 1, circular: 'yes'
         });
     	});
-    );
   }
 });
