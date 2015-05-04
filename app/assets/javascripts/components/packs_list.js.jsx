@@ -39,7 +39,8 @@ window.PacksList = React.createClass({
                   updatedAt: p.updatedAt,
                   author: p.author,
                   subpacks: p.subpacks,
-                  images: p.all_images
+                  images: p.all_images,
+                  prev: p.prev
               };
 
           });
@@ -83,6 +84,12 @@ window.PacksList = React.createClass({
 
         <span class='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
       </div>
+
+      $(function(){
+    		$("#my-als-list").als({
+          visible_items: 1, scrolling_items: 1, circular: 'yes'
+        });
+    	});
     );
   }
 });
