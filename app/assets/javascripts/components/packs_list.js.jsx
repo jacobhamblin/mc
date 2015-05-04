@@ -59,7 +59,8 @@ window.PacksList = React.createClass({
 
     var packs = this.state.packs.map(function(p){
         return <ul><li>'url='{p.url}</li> <li>'description='{p.description}</li> <li>'createdAt='{p.createdAt}</li> <li>'updatedAt='{p.updatedAt}</li> <li>'author='{p.author}</li> <li>'subpacks='{p.subpacks}</li>
-        <li>'images='{p.images.first}</li>
+        <li>'images='{p.images}</li>
+        <li>'prev='{p.prev}</li>
         </ul>
     });
 
@@ -69,10 +70,18 @@ window.PacksList = React.createClass({
 
     return (
       <div className='als-container' id='my-als-list'>
+        <span class='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
-        <div className="packs"> {packs} </div>
+        <div className='als-viewport'>
+          <ul class='als-wrapper'>
+            this.state.packs.map(function(p){
+              <li class='als-item'><img src='{p.prev}' /></li>
+            })
 
+          </ul>
+        </div>
 
+        <span class='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
       </div>
     );
   }

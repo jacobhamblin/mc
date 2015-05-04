@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429001539) do
+ActiveRecord::Schema.define(version: 20150429001152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,10 @@ ActiveRecord::Schema.define(version: 20150429001539) do
     t.string   "title",                                             null: false
     t.text     "description", default: "crazy cool custom content"
     t.string   "url",                                               null: false
+    t.string   "prev",                                              null: false
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end
-
-  create_table "subpackings", force: :cascade do |t|
-    t.integer  "subpack_id"
-    t.integer  "pack_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "subpackings", ["pack_id"], name: "index_subpackings_on_pack_id", using: :btree
-  add_index "subpackings", ["subpack_id"], name: "index_subpackings_on_subpack_id", using: :btree
 
   create_table "subpacks", force: :cascade do |t|
     t.integer  "author_id",                                               null: false
@@ -52,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150429001539) do
     t.string   "title",                                                   null: false
     t.text     "description", default: "sweet supplemental super supply"
     t.string   "url",                                                     null: false
+    t.string   "prev",                                                    null: false
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
   end
