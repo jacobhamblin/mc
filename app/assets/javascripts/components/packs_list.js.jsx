@@ -70,29 +70,32 @@ window.PacksList = React.createClass({
     }
 
     return (
-      <div className='als-container' id='my-als-list'>
-        <span className='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+      <div>
+        <div className='als-container' id='packs-index'>
+          <span className='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
-        <div className='als-viewport'>
-          <ul className='als-wrapper'>
-            { this.state.packs.map(function(p){
-              return <li className='als-item'><img src={p.prev} /></li>
-            }) }
+          <div className='als-viewport'>
+            <div className='als-wrapper'>
+              { this.state.packs.map(function(p){
+                return <div className={'als-item ' + p.id}></div>
+              }) }
+            </div>
+          </div>
 
-          </ul>
+          <span className='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
         </div>
-
-        <span className='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
-
       </div>
-
-
-
     );
-      $(function(){
-    		$("#my-als-list").als({
-          visible_items: 1, scrolling_items: 1, circular: 'yes'
-        });
-    	});
+
+    this.state.packs.map(function(p) {
+      $('.{p.id}').css('background-image: url("{p.prev}")')
+    })
   }
+});
+
+$(function(){
+  $("#packs-index").als({
+    visible_items: 2, scrolling_items: 2, circular: 'yes'
+  });
 });
