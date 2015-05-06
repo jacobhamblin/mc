@@ -63,9 +63,7 @@ table {
 	border-spacing: 0;
 }
 
-/*
-*   Start my CSS
-*/
+/* Start my CSS */
 
 @font-face {
   font-family: 'Helvetica Neue';
@@ -89,6 +87,10 @@ table {
 
 body {
   font-family: 'Helvetica Neue';
+}
+
+button {
+	cursor: pointer;
 }
 
 .welcome {
@@ -199,6 +201,17 @@ body {
   color: #000;
   text-transform: uppercase;
   border: none;
+	cursor: pointer;
+}
+
+.btn.guest-login {
+	width: 300px;
+	margin: 5px 0;
+	background: none;
+	color: #fff;
+	text-transform: uppercase;
+	border: 1px solid #fff;
+	height: 39px;
 }
 
 .entry-area {
@@ -250,7 +263,7 @@ body {
 	z-index: 0;
 
 	/* my stuff */
-	width: 80%;
+	width: 90%;
 }
 
 /****************************************
@@ -263,7 +276,7 @@ body {
 	margin: 0px auto;
 
 	/* my stuff */
-	width: 80%;
+	width: 90%;
 }
 
 /***************************************************
@@ -324,7 +337,7 @@ body {
 }
 
 #packs-index {
-	margin: 20vw auto;
+	margin: 20vh auto 0 auto;
 }
 
 #packs-index .als-item {

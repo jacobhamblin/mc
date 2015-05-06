@@ -51,15 +51,17 @@
 
   <form class='signin-form' action="<%= session_url %>" method="post">
     <%= auth_token_input %>
-    <input type="text" name="user[username]" placeholder="Username" class="ffield" tabindex="1">
+    <input type="text" name="user[username]" placeholder="Username" class="ffield username signin" tabindex="1">
     <br>
     <br>
 
-    <input type="password" name="user[password]" placeholder="Password" class="ffield" tabindex="2">
+    <input type="password" name="user[password]" placeholder="Password" class="ffield password signin" tabindex="2">
     <br>
     <br>
 
-    <input type="submit" value="Sign In" class="btn enter" tabindex="3"><br><br>
+    <input type="submit" value="Sign In" class="btn enter signin" tabindex="3"><br><br>
+
+    <button class="btn guest-login" tabindex="4">Guest Login</button><br><br>
   </form>
 
 </div>
@@ -102,6 +104,30 @@
   </form>
 
 </div>
+
+<% emails = %w(doku ofFaith demonkleenr mid flow xdcobra slender pleb retro qtpie limp getgabenedhd city soul) %>
+
+<script>
+   $('.btn.guest-login').click(function(){
+     $(".ffield.username.signin").val('');
+     $(".ffield.password.signin").val('');
+     autoTyper('<%= emails.sample %>', $(".ffield.username.signin"), function(){
+       autoTyper('password', $(".ffield.password.signin"), function(){
+         $('.btn.enter.signin').click();
+       });
+     });
+   });
+   var autoTyper = function(word, $el, callback){
+     var typer = setInterval(function(){
+       $el.val($el.val() + word.slice(0,1));
+       word = word.substr(1);
+       if(word.length === 0){
+         clearInterval(typer);
+         callback();
+       }
+     }, 50);
+   }
+</script>
 
 <script>
   $('.let-signin').click(function () {

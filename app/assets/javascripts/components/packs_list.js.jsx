@@ -18,7 +18,7 @@ window.PacksList = React.createClass({
 
       var self = this;
 
-      // API endpoint for Instagram's popular images for the day
+      // API endpoint for my packs
 
       var url = 'api/packs';
 
@@ -80,7 +80,7 @@ window.PacksList = React.createClass({
         </ul>
     });
 
-
+5
     if(!packs.length){
         packs = <i>Loading packs..</i>;
     }
@@ -108,7 +108,7 @@ window.PacksList = React.createClass({
   }
 });
 
-var wide = (Math.floor(( window.innerWidth * 0.8 ) / 210 ) - 1);
+var wide = (Math.floor(( window.innerWidth * 0.9 ) / 210 ) - 1);
 console.log(wide)
 
 $(setTimeout(function(){
