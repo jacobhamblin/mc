@@ -56,7 +56,6 @@ window.PacksList = React.createClass({
 
   },
 
-
   renderList: function() {
     var packList = [];
     for (var i = 0; i < this.state.packs.length; i++) {
@@ -67,7 +66,7 @@ window.PacksList = React.createClass({
       packList.push(<div key={i} className={'als-item'}><div style={itemStyle}></div></div> )
     }
     return (
-      {packList}
+      packList
     )
   },
 
@@ -110,11 +109,11 @@ window.PacksList = React.createClass({
 });
 
 var wide = (Math.floor(( window.innerWidth * 0.8 ) / 210 ) - 1);
+console.log(wide)
 
 $(setTimeout(function(){
   $(".als-viewport").css('display', 'block');
   $("#packs-index").als({
     visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
   });
-}, 400)
-);
+}, 400));
