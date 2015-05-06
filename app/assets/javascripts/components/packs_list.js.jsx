@@ -116,4 +116,4 @@ $(setTimeout(function(){
   $("#packs-index").als({
     visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
   });
-}, 400));
+}, 700));
