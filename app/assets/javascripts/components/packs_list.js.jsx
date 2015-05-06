@@ -40,7 +40,8 @@ window.PacksList = React.createClass({
                   author: p.author,
                   subpacks: p.subpacks,
                   images: p.all_images,
-                  prev: p.prev
+                  prev: p.prev,
+                  titleJoined: p.title.replace(/\s+/g, '')
               };
 
           });
@@ -55,6 +56,21 @@ window.PacksList = React.createClass({
 
   },
 
+
+  renderList: function() {
+    var packList = [];
+    for (var i = 0; i < this.state.packs.length; i++) {
+      var pack = this.state.packs[i];
+      var itemStyle = {
+        backgroundImage: 'url(' + pack.prev + ')'
+      }
+      packList.push(<div key={i} className={'als-item'}><div style={itemStyle}></div></div> )
+    }
+    return (
+      {packList}
+    )
+  },
+
   render: function() {
     var self = this;
 
@@ -65,37 +81,50 @@ window.PacksList = React.createClass({
         </ul>
     });
 
+
     if(!packs.length){
         packs = <i>Loading packs..</i>;
     }
 
+    var packs = this.state.packs
     return (
       <div>
-        <div className='als-container' id='packs-index'>
-          <span className='als-prev'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+        <div className='packsindex-background' />
+        <div>
+          <div className='als-container' id='packs-index'>
+            <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
-          <div className='als-viewport'>
-            <div className='als-wrapper'>
-              { this.state.packs.map(function(p){
-                return <div className={'als-item ' + p.id}></div>
-              }) }
+            <div className='als-viewport' style={{display: 'none'}}>
+              <div className='als-wrapper'>
+                {this.renderList()}
+              </div>
             </div>
+
+            <span className='als-next arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
           </div>
-
-          <span className='als-next'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
-
         </div>
       </div>
     );
 
-    this.state.packs.map(function(p) {
-      $('.{p.id}').css('background-image: url("{p.prev}")')
-    })
+    if (this.state.packs.length) {
+      debugger
+      var packs = this.state.packs;
+      for(var i = 0; i < this.state.packs.length; i++) {
+        console.log(i);
+        $("{'.' + packs[i].titleJoined}").css('background-image', 'url(' + packs[i].prev + ')');
+      }
+    }
   }
 });
 
-$(function(){
+var wide = (Math.floor(( window.innerWidth * 0.8 ) / 210 ) - 1);
+
+$(setTimeout(function(){
+  console.log(wide);
+  $(".als-viewport").css('display', 'block');
   $("#packs-index").als({
-    visible_items: 2, scrolling_items: 2, circular: 'yes'
+    visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
   });
-});
+}, 400)
+);
