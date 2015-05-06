@@ -106,22 +106,12 @@ window.PacksList = React.createClass({
         </div>
       </div>
     );
-
-    if (this.state.packs.length) {
-      debugger
-      var packs = this.state.packs;
-      for(var i = 0; i < this.state.packs.length; i++) {
-        console.log(i);
-        $("{'.' + packs[i].titleJoined}").css('background-image', 'url(' + packs[i].prev + ')');
-      }
-    }
   }
 });
 
 var wide = (Math.floor(( window.innerWidth * 0.8 ) / 210 ) - 1);
 
 $(setTimeout(function(){
-  console.log(wide);
   $(".als-viewport").css('display', 'block');
   $("#packs-index").als({
     visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
