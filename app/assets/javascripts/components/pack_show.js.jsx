@@ -25,6 +25,7 @@ window.PackShow = React.createClass({
           <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
         );
       };
+      
       return (
         <div className='thumbnails'>
           {theImages}

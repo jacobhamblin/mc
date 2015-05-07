@@ -115,6 +115,12 @@ button {
     display: block;
   }
 
+	a {
+		color: #fff;
+		text-decoration: none;
+		font-weight: normal;
+	}
+
   p {
     text-align: center;
     margin: auto;
@@ -429,15 +435,31 @@ button {
 			font-size: 16px;
 			letter-spacing: .05em;
 			width: 100%;
+			position: relative;
+			margin: 10px 0;
+		}
+		.url {
+			width: 100%;
+			bottom: 143px;
 			position: absolute;
+			a {
+				width: 48px;
+				margin: 0 auto;
+				border: 1px solid #fff;
+				padding: 5px 10px;
+				color: #fff;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
 		}
 		.thumbnails {
 			display: block;
 			position: absolute;
-			width: 100%;
+			width: 700px;
 			bottom: 0;
 			height: 128px;
 			overflow: hidden;
+			left: -5px;
 			div {
 				background-size: cover;
 				background-repeat: no-repeat;

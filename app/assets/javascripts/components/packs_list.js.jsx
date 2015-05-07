@@ -93,7 +93,6 @@ window.PacksList = React.createClass({
         </ul>
     });
 
-5
     if(!packs.length){
         packs = <i>Loading packs..</i>;
     }
