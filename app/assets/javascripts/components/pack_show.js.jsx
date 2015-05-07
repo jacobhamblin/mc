@@ -17,12 +17,10 @@ window.PackShow = React.createClass({
   },
 
   renderThumbnails: function() {
-    if (this.state.pack) {
-      debugger
-      console.log(this.state.pack)
+    if (this.props.pack) {
       var theImages = [];
-      for (var i = 0; i  < this.props.pack.images.length; i++) {
-        var image = this.state.pack.images[i];
+      for (var i = 0; i  < this.props.pack.images.all_images.length; i++) {
+        var image = this.props.pack.images.all_images[i];
         theImages.push(
           <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
         );
@@ -36,7 +34,7 @@ window.PackShow = React.createClass({
   },
 
   thumbnailClick: function(id) {
-    var images = this.state.pack.images;
+    var images = this.props.pack.images.all_images;
     var selectedThumbnail = 0;
 
     for(var i = 0; i < images.length; i++) {

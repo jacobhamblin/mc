@@ -417,7 +417,29 @@ button {
 		.description {
 			font-size: 20px;
 			letter-spacing: .3em;
-
+			width: 40%;
+			position: absolute;
+			margin-top: -200px;
+		}
+		.thumbnails {
+			display: block;
+			position: absolute;
+			width: 40%;
+			margin-top: -50px;
+			div {
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				width: 200px;
+				display: inline-block;
+				margin: 0px 5px;
+				padding: 4px 0px;
+				vertical-align: middle;
+				height: 128px;
+				-webkit-filter: brightness(0.7);
+				transition: -webkit-filter .3s ease;
+				cursor: pointer;
+			}
 		}
 	}
 }
