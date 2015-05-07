@@ -46,6 +46,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	color: #fff;
+	overflow-y: scroll;
 }
 ol, ul {
 	list-style: none;
@@ -398,34 +399,41 @@ button {
 /* PACK SHOW */
 
 .pack-show {
-	width: 85%;
+	width: 90%;
+	position: relative;
 	margin: 75px auto;
+	height: 35vh;
 	.big-image {
-		margin: 0 5%;
-		width: 40%;
+		width: 45%;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		display: inline-block;
-		height: 400px;
+		height: 100%;
 		vertical-align: middle;
+		position: absolute;
 	}
 	.right {
-		width: 40%;
-		margin: 0 5%;
+		width: 45%;
+		height: 100%;
+		margin-left: 55%;
 		display: inline-block;
-		.description {
+		position: absolute;
+		.title {
 			font-size: 20px;
 			letter-spacing: .3em;
+			text-transform: uppercase;
+		}
+		.description {
+			font-size: 16px;
+			letter-spacing: .05em;
 			width: 40%;
 			position: absolute;
-			margin-top: -200px;
 		}
 		.thumbnails {
 			display: block;
 			position: absolute;
 			width: 40%;
-			margin-top: -50px;
 			div {
 				background-size: cover;
 				background-repeat: no-repeat;
@@ -436,10 +444,14 @@ button {
 				padding: 4px 0px;
 				vertical-align: middle;
 				height: 128px;
-				-webkit-filter: brightness(0.7);
-				transition: -webkit-filter .3s ease;
+				-webkit-filter: blur(1.5px);
+				transition: -webkit-filter .15s ease;
 				cursor: pointer;
+				&:hover {
+					-webkit-filter: none;
+				}
 			}
+
 		}
 	}
 }

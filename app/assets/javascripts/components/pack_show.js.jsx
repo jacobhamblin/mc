@@ -59,8 +59,14 @@ window.PackShow = React.createClass({
 
           <div className='big-image' style={{backgroundImage: 'url(' + this.state.selectedThumbnail.url + ')'}} />
           <div className='right'>
+            <div className='title'>
+              {this.props.pack.title}
+            </div>
             <div className='description'>
               {this.props.pack.description}
+            </div>
+            <div className='url'>
+              <a href={this.props.pack.url}>Download</a>
             </div>
 
             {this.renderThumbnails()}
@@ -75,8 +81,14 @@ window.PackShow = React.createClass({
 
           <div className='big-image' style={{backgroundImage: 'url(' + this.props.pack.images.all_images[0].url + ')'}} />
           <div className='right'>
+            <div className='title'>
+              {this.props.pack.title}
+            </div>
             <div className='description'>
               {this.props.pack.description}
+            </div>
+            <div className='url'>
+              <a href={this.props.pack.url}>Download</a>
             </div>
 
             {this.renderThumbnails()}
@@ -91,8 +103,14 @@ window.PackShow = React.createClass({
 
           <div className='big-image' />
           <div className='right'>
+            <div className='title'>
+              {this.props.pack.title}
+            </div>
             <div className='description'>
               {this.props.pack.description}
+            </div>
+            <div className='url'>
+              <a href={this.props.pack.url}>Download</a>
             </div>
 
             {this.renderThumbnails()}
