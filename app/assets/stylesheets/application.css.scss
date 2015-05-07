@@ -423,17 +423,21 @@ button {
 			font-size: 20px;
 			letter-spacing: .3em;
 			text-transform: uppercase;
+			width: 100%;
 		}
 		.description {
 			font-size: 16px;
 			letter-spacing: .05em;
-			width: 40%;
+			width: 100%;
 			position: absolute;
 		}
 		.thumbnails {
 			display: block;
 			position: absolute;
-			width: 40%;
+			width: 100%;
+			bottom: 0;
+			height: 128px;
+			overflow: hidden;
 			div {
 				background-size: cover;
 				background-repeat: no-repeat;
