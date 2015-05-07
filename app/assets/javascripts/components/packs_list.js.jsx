@@ -57,7 +57,6 @@ window.PacksList = React.createClass({
   },
 
   imageClick: function(id) {
-    debugger
     var packs = this.state.packs;
     var theSelectedPack = 0;
 
@@ -67,7 +66,7 @@ window.PacksList = React.createClass({
       }
     }
 
-    this.setState({ selectedPack: theSelectedPack, selectedThumbnail: theSelectedPack.images[0] })
+    this.setState({ selectedPack: theSelectedPack })
   },
 
   renderList: function() {
@@ -82,18 +81,6 @@ window.PacksList = React.createClass({
     return (
       packList
     )
-  },
-
-  aPackIsSelected: function() {
-    if (this.state.selectedPack) {
-      return (
-        <PackShow pack={ this.state.selectedPack } />
-      )
-    } else {
-      return (
-        <div />
-      )
-    }
   },
 
   render: function() {

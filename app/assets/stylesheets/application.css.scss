@@ -394,3 +394,30 @@ button {
 		-webkit-filter: invert(0.6);
 	}
 }
+
+/* PACK SHOW */
+
+.pack-show {
+	width: 85%;
+	margin: 75px auto;
+	.big-image {
+		margin: 0 5%;
+		width: 40%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		display: inline-block;
+		height: 400px;
+		vertical-align: middle;
+	}
+	.right {
+		width: 40%;
+		margin: 0 5%;
+		display: inline-block;
+		.description {
+			font-size: 20px;
+			letter-spacing: .3em;
+
+		}
+	}
+}

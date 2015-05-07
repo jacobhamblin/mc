@@ -1,30 +1,38 @@
 window.PackShow = React.createClass({
   propTypes: {
-    pack: React.PropTypes.object
+    pack: React.PropTypes.object,
+    selectedThumbnail: React.PropTypes.object
   },
 
   getInitialState: function() {
-    return { pack: this.props.pack, selectedThumbnail: 0 }
+    if (this.state) {
+      return (
+        { selectedThumbnail: this.state.pack.images[0] }
+      )
+    } else {
+      return (
+        { pack: this.props.pack, selectedThumbnail: 0 }
+      )
+    }
   },
 
   renderThumbnails: function() {
-    // if (this.props.pack) {
-    //   var theImages = [];
-    //   var images = this.props.pack.images;
-    //   for (var i = 0; i  < this.props.pack.images.length; i++) {
-    //     var imageStyle = {
-    //       backgroundImage: 'url(' + images[i].url + ')'
-    //     }
-    //     theImages.push(
-    //       <div className='thumbnail' data-id={images[i].id} style={imageStyle} onClick={this.thumbnailClick} \>
-    //     )
-    //   };
+    if (this.state.pack) {
+      debugger
+      console.log(this.state.pack)
+      var theImages = [];
+      for (var i = 0; i  < this.props.pack.images.length; i++) {
+        var image = this.state.pack.images[i];
+        theImages.push(
+          <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
+        );
+      };
       return (
         <div className='thumbnails'>
-          // {theImages}
+          {theImages}
         </div>
       )
-    // }
+    }
   },
 
   thumbnailClick: function(id) {
@@ -47,22 +55,55 @@ window.PackShow = React.createClass({
       )
     }
 
-    return (
-      <div className='pack-show'>
-        <div className='right'>
-          <div className='description'>
-            {this.props.pack.description}
+    if (this.state.selectedThumbnail) {
+      return (
+        <div className='pack-show'>
+
+          <div className='big-image' style={{backgroundImage: 'url(' + this.state.selectedThumbnail.url + ')'}} />
+          <div className='right'>
+            <div className='description'>
+              {this.props.pack.description}
+            </div>
+
+            {this.renderThumbnails()}
+
           </div>
 
-          {this.renderThumbnails()}
+        </div>
+      )
+    } else if ( this.props.pack) {
+      return (
+        <div className='pack-show'>
+
+          <div className='big-image' style={{backgroundImage: 'url(' + this.props.pack.images.all_images[0].url + ')'}} />
+          <div className='right'>
+            <div className='description'>
+              {this.props.pack.description}
+            </div>
+
+            {this.renderThumbnails()}
+
+          </div>
 
         </div>
+      )
+    } else {
+      return (
+        <div className='pack-show'>
 
-        <div className='big-image' style={{backgroundImage: 'url(' + this.state.selectedThumbnail.url + ')'}}>
+          <div className='big-image' />
+          <div className='right'>
+            <div className='description'>
+              {this.props.pack.description}
+            </div>
+
+            {this.renderThumbnails()}
+
+          </div>
 
         </div>
+      )
+    }
 
-      </div>
-    )
   }
 })
