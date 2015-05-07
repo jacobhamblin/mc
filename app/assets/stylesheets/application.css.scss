@@ -313,6 +313,11 @@ button {
 		margin: 0 auto;
 		vertical-align: middle;
 		height: 128px;
+		-webkit-filter: brightness(0.7);
+		transition: -webkit-filter .3s ease;
+		&:hover {
+			-webkit-filter:brightness(1.0);
+		}
 	}
 
 }

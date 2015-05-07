@@ -9,7 +9,7 @@ window.PacksList = React.createClass({
         // The images array will be populated via AJAX, and
         // the one when the user clicks on an image:
 
-        return { packs: [] };
+        return { packs: [], selectedPack: 0 };
   },
 
   componentDidMount: function(){
@@ -56,6 +56,20 @@ window.PacksList = React.createClass({
 
   },
 
+  imageClick: function(id) {
+    debugger
+    var packs = this.state.packs;
+    var theSelectedPack = 0;
+
+    for(var i = 0; i < packs.length; i++) {
+      if (packs[i].id == parseInt(id.target.getAttribute('data-id')) ) {
+        theSelectedPack = packs[i];
+      }
+    }
+
+    this.setState({ selectedPack: theSelectedPack, selectedThumbnail: theSelectedPack.images[0] })
+  },
+
   renderList: function() {
     var packList = [];
     for (var i = 0; i < this.state.packs.length; i++) {
@@ -63,11 +77,23 @@ window.PacksList = React.createClass({
       var itemStyle = {
         backgroundImage: 'url(' + pack.prev + ')'
       }
-      packList.push(<div key={i} className={'als-item'}><div style={itemStyle}></div></div> )
+      packList.push(<div className={'als-item'} onClick={this.imageClick}><div style={itemStyle} data-id={pack.id}></div></div> )
     }
     return (
       packList
     )
+  },
+
+  aPackIsSelected: function() {
+    if (this.state.selectedPack) {
+      return (
+        <PackShow pack={ this.state.selectedPack } />
+      )
+    } else {
+      return (
+        <div />
+      )
+    }
   },
 
   render: function() {
@@ -85,7 +111,7 @@ window.PacksList = React.createClass({
         packs = <i>Loading packs..</i>;
     }
 
-    var packs = this.state.packs
+    var thePacks = this.state.packs
     return (
       <div>
         <div className='packsindex-background' />
@@ -103,6 +129,7 @@ window.PacksList = React.createClass({
 
           </div>
         </div>
+        <PackShow pack={ this.state.selectedPack } />
       </div>
     );
   }
