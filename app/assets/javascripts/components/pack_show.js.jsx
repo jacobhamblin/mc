@@ -25,7 +25,7 @@ window.PackShow = React.createClass({
           <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
         );
       };
-      
+
       return (
         <div className='thumbnails'>
           {theImages}
@@ -45,6 +45,13 @@ window.PackShow = React.createClass({
     }
 
     this.setState({ selectedThumbnail: theSelectedThumbnail })
+  },
+
+  componentWillUpdate: function(nextProps, nextState) {
+    if (nextProps.pack != this.props.pack) {
+      this.state.selectedThumbnail = 0;
+    }
+
   },
 
   render: function() {
@@ -98,29 +105,6 @@ window.PackShow = React.createClass({
 
         </div>
       )
-    } else {
-      return (
-        <div className='pack-show'>
-
-          <div className='big-image' />
-          <div className='right'>
-            <div className='title'>
-              {this.props.pack.title}
-            </div>
-            <div className='description'>
-              {this.props.pack.description}
-            </div>
-            <div className='url'>
-              <a href={this.props.pack.url}>Download</a>
-            </div>
-
-            {this.renderThumbnails()}
-
-          </div>
-
-        </div>
-      )
     }
-
   }
 })
