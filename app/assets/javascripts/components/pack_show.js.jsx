@@ -85,7 +85,6 @@ window.PackShow = React.createClass({
             <div className='url'>
               <a href={this.props.pack.url}>Download</a>
             </div>
-            {this.renderSubpacks()}
             <div className='description'>
               {this.props.pack.description}
             </div>
