@@ -5,7 +5,7 @@ window.Subpack = React.createClass({
     url: React.PropTypes.string,
     author: React.PropTypes.instanceOf(window.User),
     pack: React.PropTypes.instanceOf(Pack),
-    images: React.PropTypes.array
+    images: React.PropTypes.arrayOf(React.PropTypes.Image)
   },
 
   render: function() {

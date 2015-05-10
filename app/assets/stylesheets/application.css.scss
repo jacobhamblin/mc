@@ -433,6 +433,7 @@ button {
 			letter-spacing: .3em;
 			text-transform: uppercase;
 			width: 100%;
+			font-style: italic;
 		}
 		.description {
 			font-size: 10px;
@@ -441,19 +442,34 @@ button {
 			position: relative;
 			margin: 10px 0;
 		}
-		.url {
+		.buttons {
 			width: 100%;
 			bottom: 143px;
 			margin: 7px 0;
-			a {
-				font-size: 10px;
-				width: 48px;
-				margin: 0 auto;
-				border: 1px solid #fff;
-				padding: 3px 7px;
-				color: #fff;
-				text-decoration: none;
-				text-transform: uppercase;
+			.url {
+				display: inline-block;
+				a {
+					font-size: 10px;
+					width: 74px;
+					border: 1px solid #fff;
+					padding: 3px 7px;
+					color: #fff;
+					text-decoration: none;
+					text-transform: uppercase;
+				}
+			}
+			.subpacks {
+				float: right;
+				display: inline-block;
+				li {
+					display: inline-block;
+					margin: 0 7px;
+					padding: 3px 7px;
+					font-size: 10px;
+					text-transform: uppercase;
+					cursor: pointer;
+					font-style: italic;
+				}
 			}
 		}
 		.thumbnails {

@@ -5,7 +5,7 @@ json.author do
 end
 
 json.pack do
-  json.pack subpack.pack, :id, :author_id, :title, :description, :url, :pack
+  json.pack subpack.pack, :id, :author_id, :title, :description, :url
 end
 
 json.images do
