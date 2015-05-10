@@ -83,6 +83,18 @@ window.PacksList = React.createClass({
     )
   },
 
+  componentDidUpdate: function() {
+    var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
+    var viewport = $(React.findDOMNode(this.refs.viewport));
+
+    var wide = (Math.floor(( window.innerWidth * 0.9 ) / 210 ) - 1);
+
+    viewport.css('display', 'block');
+    packsIndex.als({
+      visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
+    });
+  },
+
   render: function() {
     var self = this;
 
@@ -102,10 +114,10 @@ window.PacksList = React.createClass({
       <div>
         <div className='packsindex-background' />
         <div>
-          <div className='als-container' id='packs-index'>
+          <div className='als-container' id='packs-index' ref='packsIndex'>
             <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
-            <div className='als-viewport' style={{display: 'none'}}>
+            <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
               <div className='als-wrapper'>
                 {this.renderList()}
               </div>
@@ -120,13 +132,3 @@ window.PacksList = React.createClass({
     );
   }
 });
-
-var wide = (Math.floor(( window.innerWidth * 0.9 ) / 210 ) - 1);
-console.log(wide)
-
-$(setTimeout(function(){
-  $(".als-viewport").css('display', 'block');
-  $("#packs-index").als({
-    visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
-  });
-}, 700));
