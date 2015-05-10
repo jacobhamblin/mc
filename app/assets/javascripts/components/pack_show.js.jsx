@@ -34,6 +34,18 @@ window.PackShow = React.createClass({
     }
   },
 
+  // renderSubPacks: function() {
+  //   if (this.props.pack.subpacks) {
+  //     var subp = this.props.pack.subpacks;
+  //     var theSubpacks = [];
+  //     for (var i = 0; i < subp.length; i++) {
+  //       theSubpacks.push(
+  //         <div className='subpack' data-id={subpack.id} style=subp[i]
+  //       );
+  //     };
+  //   }
+  // },
+
   thumbnailClick: function(id) {
     var images = this.props.pack.images.all_images;
     var selectedThumbnail = 0;
@@ -70,11 +82,12 @@ window.PackShow = React.createClass({
             <div className='title'>
               {this.props.pack.title}
             </div>
-            <div className='description'>
-              {this.props.pack.description}
-            </div>
             <div className='url'>
               <a href={this.props.pack.url}>Download</a>
+            </div>
+            {this.renderSubpacks()}
+            <div className='description'>
+              {this.props.pack.description}
             </div>
 
             {this.renderThumbnails()}
@@ -83,7 +96,7 @@ window.PackShow = React.createClass({
 
         </div>
       )
-    } else if ( this.props.pack) {
+    } else if (this.props.pack) {
       return (
         <div className='pack-show'>
 
@@ -92,11 +105,11 @@ window.PackShow = React.createClass({
             <div className='title'>
               {this.props.pack.title}
             </div>
-            <div className='description'>
-              {this.props.pack.description}
-            </div>
             <div className='url'>
               <a href={this.props.pack.url}>Download</a>
+            </div>
+            <div className='description'>
+              {this.props.pack.description}
             </div>
 
             {this.renderThumbnails()}

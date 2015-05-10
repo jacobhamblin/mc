@@ -87,7 +87,7 @@ window.PacksList = React.createClass({
     var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
     var viewport = $(React.findDOMNode(this.refs.viewport));
 
-    var wide = (Math.floor(( window.innerWidth * 0.9 ) / 210 ) - 1);
+    var wide = (Math.floor(( window.innerWidth * 0.9 ) / 160 ) - 1);
 
     if (viewport.css('display') == 'none') {
       viewport.css('display', 'block');
