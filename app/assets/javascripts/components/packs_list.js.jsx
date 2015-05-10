@@ -89,10 +89,12 @@ window.PacksList = React.createClass({
 
     var wide = (Math.floor(( window.innerWidth * 0.9 ) / 210 ) - 1);
 
-    viewport.css('display', 'block');
-    packsIndex.als({
-      visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
-    });
+    if (viewport.css('display') == 'none') {
+      viewport.css('display', 'block');
+      packsIndex.als({
+        visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
+      });
+    }
   },
 
   render: function() {
