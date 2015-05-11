@@ -264,6 +264,16 @@ button {
 	}
 }
 
+.sign-out {
+	position: absolute;
+	color: #fff;
+	text-decoration: none;
+	font-size: 10px;
+	text-transform: uppercase;
+	top: calc(20vh - 17px);
+	right: 7.5%;
+}
+
 /*****************************************************
  * generic styling for ALS elements: outer container
  ******************************************************/
@@ -391,7 +401,7 @@ button {
 	position: absolute;
 	background-repeat: repeat;
 	display: block;
-	-webkit-filter: brightness(0.2);
+	-webkit-filter: brightness(0.3);
 	z-index: -1000;
 }
 
