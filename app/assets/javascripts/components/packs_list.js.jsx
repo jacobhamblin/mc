@@ -116,7 +116,7 @@ window.PacksList = React.createClass({
     if (this.state.selectedPack) {
       return (
         <div>
-          <div className='packsindex-background' />
+          <div className='packsindex-background' style={{backgroundImage: window.bg }} />
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
               <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
@@ -139,7 +139,7 @@ window.PacksList = React.createClass({
     } else {
       return (
         <div>
-          <div className='packsindex-background' />
+          <div className='packsindex-background' style={{backgroundImage: window.bg}} />
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
               <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
