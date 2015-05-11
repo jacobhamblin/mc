@@ -352,13 +352,13 @@ button {
 }
 
 #packs-index {
-	margin: 20vh auto 0 auto;
+	margin: 20vh auto 1vh auto;
 }
 
 #packs-index .als-item {
 	margin: 0px 3px;
 	padding: 2px 0px;
-	min-height: 120px;
+	min-height: 100px;
 	min-width: 175px;
 	text-align: center;
 	display: block;
@@ -410,12 +410,20 @@ button {
 
 /* PACK SHOW */
 
-.pack-show {
+.packshow-container {
 	width: 85%;
+	padding: 1vh 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	border-style: dashed;
+	margin: 0 auto;
+}
+
+.pack-show {
+	width: 100%;
 	position: relative;
-	margin: 75px auto;
 	height: 35vh;
-	.big-image {
+		.big-image {
 		width: 49.5%;
 		background-size: cover;
 		background-repeat: no-repeat;
@@ -493,8 +501,8 @@ button {
 				padding: 4px 0px;
 				vertical-align: middle;
 				height: 80px;
-				-webkit-filter: blur(1.5px);
-				transition: -webkit-filter .15s ease;
+				-webkit-filter: saturate(0%);
+				transition: -webkit-filter .35s ease;
 				cursor: pointer;
 				&:hover {
 					-webkit-filter: none;

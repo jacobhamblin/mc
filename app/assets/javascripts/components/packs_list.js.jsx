@@ -112,25 +112,50 @@ window.PacksList = React.createClass({
     }
 
     var thePacks = this.state.packs
-    return (
-      <div>
-        <div className='packsindex-background' />
+
+    if (this.state.selectedPack) {
+      return (
         <div>
-          <div className='als-container' id='packs-index' ref='packsIndex'>
-            <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+          <div className='packsindex-background' />
+          <div>
+            <div className='als-container' id='packs-index' ref='packsIndex'>
+              <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
 
-            <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
-              <div className='als-wrapper'>
-                {this.renderList()}
+              <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
+                <div className='als-wrapper'>
+                  {this.renderList()}
+                </div>
               </div>
+
+              <span className='als-next arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
             </div>
-
-            <span className='als-next arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
-
+          </div>
+          <div className='packshow-container'>
+            <PackShow pack={ this.state.selectedPack } />
           </div>
         </div>
-        <PackShow pack={ this.state.selectedPack } />
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div>
+          <div className='packsindex-background' />
+          <div>
+            <div className='als-container' id='packs-index' ref='packsIndex'>
+              <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
+              <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
+                <div className='als-wrapper'>
+                  {this.renderList()}
+                </div>
+              </div>
+
+              <span className='als-next arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 });
