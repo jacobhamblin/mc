@@ -6,6 +6,7 @@ class CreatePacks < ActiveRecord::Migration
       t.text :description, default: "crazy cool custom content"
       t.string :url, null: false
       t.string :prev, null: false
+      t.integer :downloads, default: 0
 
       t.timestamps null: false
     end

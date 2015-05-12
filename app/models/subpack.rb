@@ -18,4 +18,5 @@ class Subpack < ActiveRecord::Base
   belongs_to :author, class_name: :User
   belongs_to :pack
   has_many :images, as: :imageable
+  has_many :tags
 end

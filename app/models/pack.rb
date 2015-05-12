@@ -18,6 +18,7 @@ class Pack < ActiveRecord::Base
 
   has_many :images, as: :imageable
   has_many :subpacks
+  has_many :tags
 
   def all_images
     all_images = self.images
@@ -25,5 +26,13 @@ class Pack < ActiveRecord::Base
       all_images += s.images
     end
     all_images
+  end
+
+  def all_tags
+    all_tags = self.tags
+    subpacks.each do |s|
+      all_tags += s.tags
+    end
+    all_tags.uniq
   end
 end

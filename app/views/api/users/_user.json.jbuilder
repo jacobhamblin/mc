@@ -5,9 +5,9 @@ json.images do
 end
 
 json.packs do
-  json.packs user.packs, :id, :author_id, :title, :description, :url
+  json.packs user.packs, :id, :author_id, :title, :description, :url, :tags, :all_tags, :images, :all_images, :downloads
 end
 
 json.subpacks do
-  json.subpacks user.subpacks,:id, :author_id, :title, :description, :url
+  json.subpacks user.subpacks,:id, :author_id, :title, :description, :url, :images, :tags, :downloads
 end
