@@ -86,6 +86,52 @@ window.PacksList = React.createClass({
     )
   },
 
+  sortClick: function(id) {
+    console.log(id)
+
+    var self = this;
+
+    // API endpoint for my packs
+
+    var url = 'api/packs';
+
+    $.getJSON(url, function(result){
+
+        if(!result || !result.packs || !result.packs.length){
+            return;
+        }
+
+        var packs = result.packs.map(function(p){
+
+            return {
+                id: p.id,
+                title: p.title,
+                url: p.url,
+                description: p.description,
+                createdAt: p.createdAt,
+                updatedAt: p.updatedAt,
+                author: p.author,
+                subpacks: p.subpacks,
+                images: p.all_images,
+                prev: p.prev,
+                titleJoined: p.title.replace(/\s+/g, ''),
+                downloads: p.downloads,
+                tags: p.tags,
+                all_tags: p.all_tags
+            };
+
+        });
+
+        // Update the component's state. This will trigger a render.
+        // Note that this only updates the images property, and does
+        // not remove the array.
+
+        self.setState({ packs: packs });
+
+    });
+
+  },
+
   componentDidUpdate: function() {
     var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
     var viewport = $(React.findDOMNode(this.refs.viewport));
@@ -101,9 +147,9 @@ window.PacksList = React.createClass({
   },
 
   render: function() {
-    var filters = ['Title', 'Downloads', 'Created', 'Updated'];
-    var filtersList = filters.map(function(f){
-      return <li>{f}</li>
+    var sorts = ['Title', 'Downloads', 'Created', 'Updated'];
+    var sortsList = sorts.map(function(f){
+      return <div onClick={this.sortClick}>{f}</div>
     });
 
     var self = this;
@@ -125,8 +171,8 @@ window.PacksList = React.createClass({
       return (
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg }} />
-          <div className='filters'>Filter by:
-            <ul>{filtersList}</ul>
+          <div className='sorts'>Sort by:
+            <div>{sortsList}</div>
           </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
@@ -151,8 +197,8 @@ window.PacksList = React.createClass({
       return (
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg}} />
-          <div className='filters'>Filter by:
-            <ul>{filtersList}</ul>
+          <div className='sorts'>Sort by:
+            <div>{sortsList}</div>
           </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>

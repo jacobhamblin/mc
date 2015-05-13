@@ -274,7 +274,7 @@ button {
 	right: 7.5%;
 }
 
-.filters {
+.sorts {
 	position: absolute;
 	color: #fff;
 	text-decoration: none;
@@ -282,12 +282,15 @@ button {
 	text-transform: uppercase;
 	top: calc(19vh - 10px);
 	left: 7.5%;
-	ul {
+	display: inline-block;
+	div {
 		display: inline-block;
 		margin-left: 20px;
-		li {
+		div {
+			position: relative;
 			display: inline-block;
 			padding: 0 15px;
+			cursor: pointer;
 		}
 	}
 }
@@ -493,6 +496,8 @@ button {
 				li {
 					display: inline-block;
 					padding: 0 3px;
+					color: #ccc;
+
 				}
 			}
 		}
