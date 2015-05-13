@@ -7,6 +7,7 @@ class CreateSubpacks < ActiveRecord::Migration
       t.text :description, default: "sweet supplemental super supply"
       t.string :url, null: false
       t.string :prev, null: false
+      t.integer :downloads, default: 0
 
       t.timestamps null: false
     end

@@ -41,7 +41,10 @@ window.PacksList = React.createClass({
                   subpacks: p.subpacks,
                   images: p.all_images,
                   prev: p.prev,
-                  titleJoined: p.title.replace(/\s+/g, '')
+                  titleJoined: p.title.replace(/\s+/g, ''),
+                  downloads: p.downloads,
+                  tags: p.tags,
+                  all_tags: p.all_tags
               };
 
           });
@@ -98,6 +101,11 @@ window.PacksList = React.createClass({
   },
 
   render: function() {
+    var filters = ['Title', 'Downloads', 'Created', 'Updated'];
+    var filtersList = filters.map(function(f){
+      return <li>{f}</li>
+    });
+
     var self = this;
 
     var packs = this.state.packs.map(function(p){
@@ -117,6 +125,9 @@ window.PacksList = React.createClass({
       return (
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg }} />
+          <div className='filters'>Filter by:
+            <ul>{filtersList}</ul>
+          </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
               <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
@@ -140,6 +151,9 @@ window.PacksList = React.createClass({
       return (
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg}} />
+          <div className='filters'>Filter by:
+            <ul>{filtersList}</ul>
+          </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
               <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>

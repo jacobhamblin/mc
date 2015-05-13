@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150429001152) do
+ActiveRecord::Schema.define(version: 20150512084356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150429001152) do
     t.text     "description", default: "crazy cool custom content"
     t.string   "url",                                               null: false
     t.string   "prev",                                              null: false
+    t.integer  "downloads",   default: 0
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
   end
@@ -44,8 +45,23 @@ ActiveRecord::Schema.define(version: 20150429001152) do
     t.text     "description", default: "sweet supplemental super supply"
     t.string   "url",                                                     null: false
     t.string   "prev",                                                    null: false
+    t.integer  "downloads",   default: 0
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",       null: false
+    t.integer  "tagable_id",   null: false
+    t.string   "tagable_type", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

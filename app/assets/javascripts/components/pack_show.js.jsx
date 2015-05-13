@@ -80,6 +80,36 @@ window.PackShow = React.createClass({
     }
   },
 
+  renderTags: function (packTags, subpackTags) {
+    if (subpackTags) {
+      var tags = [];
+      for (var i = 0; i < subpackTags.length; i++) {
+        var tag = subpackTags[i].title;
+        tags.push(<li>#{tag}</li>);
+        console.log({tag});
+      };
+
+      return (
+        <ul>
+          {tags}
+        </ul>
+      )
+    } else if (packTags) {
+      var tags = [];
+      for (var i = 0; i < packTags.all_tags.length; i++) {
+        var tag = packTags.all_tags[i];
+        tags.push(<li>#{tag}</li>);
+        console.log({tag});
+      };
+
+      return (
+        <ul>
+          {tags}
+        </ul>
+      )
+    }
+  },
+
   subpackClick: function (id) {
     var subpacks = this.props.pack.subpacks.subpacks;
     for (var i = 0; i < subpacks.length; i++) {
@@ -128,6 +158,9 @@ window.PackShow = React.createClass({
             <div className='description'>
               {this.state.subpack.description}
             </div>
+            <div className='tags'>
+              {this.renderTags(0, this.state.subpack.tags)}
+            </div>
 
             {this.renderThumbnails()}
 
@@ -149,8 +182,12 @@ window.PackShow = React.createClass({
                 <a href={this.props.pack.url}>Download</a>
               </div>
               {this.renderSubPacks()}
-            </div>            <div className='description'>
+            </div>
+             <div className='description'>
               {this.props.pack.description}
+            </div>
+            <div className='tags'>
+              {this.renderTags(this.props.pack.all_tags, 0)}
             </div>
 
             {this.renderThumbnails()}
@@ -173,8 +210,12 @@ window.PackShow = React.createClass({
                 <a href={this.props.pack.url}>Download</a>
               </div>
               {this.renderSubPacks()}
-            </div>            <div className='description'>
+            </div>
+            <div className='description'>
               {this.props.pack.description}
+            </div>
+            <div className='tags'>
+              {this.renderTags(this.props.pack.all_tags, 0)}
             </div>
 
             {this.renderThumbnails()}

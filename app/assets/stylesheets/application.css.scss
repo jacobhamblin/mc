@@ -274,6 +274,25 @@ button {
 	right: 7.5%;
 }
 
+.filters {
+	position: absolute;
+	color: #fff;
+	text-decoration: none;
+	font-size: 10px;
+	text-transform: uppercase;
+	top: calc(19vh - 10px);
+	left: 7.5%;
+	ul {
+		display: inline-block;
+		margin-left: 20px;
+		li {
+			display: inline-block;
+			padding: 0 15px;
+		}
+	}
+}
+
+
 /*****************************************************
  * generic styling for ALS elements: outer container
  ******************************************************/
@@ -461,6 +480,21 @@ button {
 			width: 100%;
 			position: relative;
 			margin: 10px 0;
+		}
+		.tags {
+			display: inline-block;
+			font-size: 10px;
+			letter-spacing: .05em;
+			width: 100%;
+			position: relative;
+			margin-left: -3px;
+			ul {
+				display: inline-block;
+				li {
+					display: inline-block;
+					padding: 0 3px;
+				}
+			}
 		}
 		.buttons {
 			width: 100%;

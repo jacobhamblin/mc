@@ -7,6 +7,8 @@
 #  title       :string           not null
 #  description :text             default("crazy cool custom content")
 #  url         :string           not null
+#  prev        :string           not null
+#  downloads   :integer          default(0)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -18,7 +20,8 @@ class Pack < ActiveRecord::Base
 
   has_many :images, as: :imageable
   has_many :subpacks
-  has_many :tags
+  has_many :taggings, as: :tagable
+  has_many :tags, through: :taggings, source: :tag
 
   def all_images
     all_images = self.images
