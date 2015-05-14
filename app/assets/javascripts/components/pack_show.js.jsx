@@ -86,7 +86,6 @@ window.PackShow = React.createClass({
       for (var i = 0; i < subpackTags.length; i++) {
         var tag = subpackTags[i].title;
         tags.push(<li>#{tag}</li>);
-        console.log({tag});
       };
 
       return (
@@ -99,7 +98,6 @@ window.PackShow = React.createClass({
       for (var i = 0; i < packTags.all_tags.length; i++) {
         var tag = packTags.all_tags[i];
         tags.push(<li>#{tag}</li>);
-        console.log({tag});
       };
 
       return (

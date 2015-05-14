@@ -87,7 +87,7 @@ window.PacksList = React.createClass({
   },
 
   sortClick: function(id) {
-    console.log(id)
+    var sortType = id.target.textContent.toLowerCase();
 
     var self = this;
 
@@ -95,7 +95,7 @@ window.PacksList = React.createClass({
 
     var url = 'api/packs';
 
-    $.getJSON(url, function(result){
+    $.getJSON(url, {sort: sortType}, function(result){
 
         if(!result || !result.packs || !result.packs.length){
             return;
@@ -146,11 +146,18 @@ window.PacksList = React.createClass({
     }
   },
 
-  render: function() {
+  renderSortsList: function () {
     var sorts = ['Title', 'Downloads', 'Created', 'Updated'];
-    var sortsList = sorts.map(function(f){
-      return <div onClick={this.sortClick}>{f}</div>
-    });
+    sortOptions = [];
+    for (var i = 0; i < sorts.length; i++) {
+      sortOptions.push(<div onClick={this.sortClick}>{sorts[i]}</div>);
+    }
+
+    return sortOptions;
+  },
+
+  render: function() {
+
 
     var self = this;
 
@@ -172,7 +179,7 @@ window.PacksList = React.createClass({
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg }} />
           <div className='sorts'>Sort by:
-            <div>{sortsList}</div>
+            <div>{this.renderSortsList()}</div>
           </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
@@ -198,7 +205,7 @@ window.PacksList = React.createClass({
         <div>
           <div className='packsindex-background' style={{backgroundImage: window.bg}} />
           <div className='sorts'>Sort by:
-            <div>{sortsList}</div>
+            <div>{this.renderSortsList()}</div>
           </div>
           <div>
             <div className='als-container' id='packs-index' ref='packsIndex'>
