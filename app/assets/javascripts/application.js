@@ -16,4 +16,5 @@
 //= require react_ujs
 //= require components
 //= require react_router
+//= require Router
 //= require_tree .

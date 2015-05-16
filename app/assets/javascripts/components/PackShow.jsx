@@ -1,4 +1,4 @@
-window.PackShow = React.createClass({
+PackShow = React.createClass({
   propTypes: {
     pack: React.PropTypes.object,
     selectedThumbnail: React.PropTypes.object

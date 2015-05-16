@@ -1,4 +1,4 @@
-window.PacksList = React.createClass({
+var PacksList = React.createClass({
   propTypes: {
     title: React.PropTypes.string
 
