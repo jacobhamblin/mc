@@ -2,6 +2,7 @@
   var DefaultRoute = ReactRouter.DefaultRoute;
   var HistoryLocation = ReactRouter.HistoryLocation;
   var Route = ReactRouter.Route;
+  var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
   this.routes = (
     <Route handler={PacksList} path='/'>
       <DefaultRoute name='packs' handler={PacksList} />

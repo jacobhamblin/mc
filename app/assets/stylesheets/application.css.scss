@@ -415,6 +415,15 @@ button {
 	right: 30px;
 }
 
+.pack-list-enter {
+	opacity: 0.01;
+	transition: opacity .5s ease-in;
+}
+
+.pack-list-enter.pack-list-enter-active {
+	opacity: 1;
+}
+
 .packsindex-background {
 	top: 0;
 	bottom: 0;

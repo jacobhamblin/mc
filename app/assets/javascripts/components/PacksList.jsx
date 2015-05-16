@@ -79,7 +79,7 @@ var PacksList = React.createClass({
       var itemStyle = {
         backgroundImage: 'url(' + pack.prev + ')'
       }
-      packList.push(<div className={'als-item'} onClick={this.imageClick}><div style={itemStyle} data-id={pack.id}></div></div> )
+      packList.push(<div className={'als-item'} key={'packprev' + pack.id} onClick={this.imageClick}><div style={itemStyle} data-id={pack.id}></div></div> )
     }
     return (
       packList
@@ -158,7 +158,6 @@ var PacksList = React.createClass({
 
   render: function() {
 
-
     var self = this;
 
     var packs = this.state.packs.map(function(p){
@@ -187,7 +186,9 @@ var PacksList = React.createClass({
 
               <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
                 <div className='als-wrapper'>
-                  {this.renderList()}
+                  <ReactCSSTransitionGroup transitionName='pack-list'>
+                    {this.renderList()}
+                  </ReactCSSTransitionGroup>
                 </div>
               </div>
 
@@ -213,7 +214,9 @@ var PacksList = React.createClass({
 
               <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
                 <div className='als-wrapper'>
-                  {this.renderList()}
+                  <ReactCSSTransitionGroup transitionName='pack-list'>
+                    {this.renderList()}
+                  </ReactCSSTransitionGroup>
                 </div>
               </div>
 
