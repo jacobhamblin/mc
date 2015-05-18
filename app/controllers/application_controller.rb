@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user, :signed_in?
 
+  def preflight
+    render nothing: true
+  end
+
   private
 
   def current_user
