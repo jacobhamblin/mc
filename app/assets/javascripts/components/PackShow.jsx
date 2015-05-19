@@ -37,7 +37,7 @@ PackShow = React.createClass({
       for (var i = 0; i  < this.props.pack.images.all_images.length; i++) {
         var image = this.props.pack.images.all_images[i];
         theImages.push(
-          <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
+          <div className='thumbnail' key={'image' + image.id} data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
         );
       };
 
@@ -160,7 +160,9 @@ PackShow = React.createClass({
               {this.renderTags(0, this.state.subpack.tags)}
             </div>
 
-            {this.renderThumbnails()}
+            <ReactCSSTransitionGroup transitionName='thumbnails-trans'>
+              {this.renderThumbnails()}
+            </ReactCSSTransitionGroup>
 
           </div>
 
@@ -188,7 +190,9 @@ PackShow = React.createClass({
               {this.renderTags(this.props.pack.all_tags, 0)}
             </div>
 
-            {this.renderThumbnails()}
+            <ReactCSSTransitionGroup transitionName='thumbnails-trans'>
+              {this.renderThumbnails()}
+            </ReactCSSTransitionGroup>
 
           </div>
 
@@ -216,7 +220,9 @@ PackShow = React.createClass({
               {this.renderTags(this.props.pack.all_tags, 0)}
             </div>
 
-            {this.renderThumbnails()}
+            <ReactCSSTransitionGroup transitionName='thumbnails-trans'>
+              {this.renderThumbnails()}
+            </ReactCSSTransitionGroup>
 
           </div>
 

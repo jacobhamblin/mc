@@ -424,6 +424,17 @@ button {
 	opacity: 1;
 }
 
+.thumbnails-trans-enter {
+	opacity: 0.01;
+	transition: opacity .5s ease-in;
+}
+
+.thumbnails-trans-enter.thumbnails-trans-enter-active {
+	opacity: 1;
+}
+
+
+
 .packsindex-background {
 	top: 0;
 	bottom: 0;

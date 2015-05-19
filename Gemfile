@@ -20,6 +20,7 @@ gem 'react-jsx', require: 'react/jsx'
 gem 'react-rails', '~> 1.0'
 gem 'react-source'
 gem 'react-router-rails', '~> 0.11.6.1'
+gem "bower-rails", "~> 0.9.2"
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
