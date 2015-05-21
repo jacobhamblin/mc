@@ -4,7 +4,6 @@ var AlsList = React.createClass({
   },
 
   componentDidUpdate: function() {
-    debugger
      var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
     var viewport = $(React.findDOMNode(this.refs.viewport));
 
