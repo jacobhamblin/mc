@@ -201,11 +201,13 @@ var PacksList = React.createClass({
 
     var wide = (Math.floor(( window.innerWidth * 0.9 ) / 180 ) - 1);
 
-    if (viewport.css('display') == 'none') {
-      viewport.css('display', 'block');
-      packsIndex.als({
-        visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
-      });
+    if (this.state.packs.length > 0) {
+      if (viewport.css('display') == 'none') {
+        viewport.css('display', 'block');
+        packsIndex.als({
+          visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
+        });
+      }
     }
   },
 
