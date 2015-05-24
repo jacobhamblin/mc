@@ -9,7 +9,11 @@ var PacksList = React.createClass({
         // The images array will be populated via AJAX, and
         // the one when the user clicks on an image:
 
-        return { pchoice: 'packs', packs: [], selectedPack: 0, arbCount: 0 };
+        return {
+          pchoice: 'packs',
+          packs: [],
+          selectedPack: 0,
+          };
   },
 
   componentDidMount: function(){
@@ -191,6 +195,20 @@ var PacksList = React.createClass({
     this.setState({ selectedPack: theSelectedPack })
   },
 
+  componentDidUpdate: function () {
+    var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
+    var viewport = $(React.findDOMNode(this.refs.viewport));
+
+    var wide = (Math.floor(( window.innerWidth * 0.9 ) / 180 ) - 1);
+
+    if (viewport.css('display') == 'none') {
+      viewport.css('display', 'block');
+      packsIndex.als({
+        visible_items: wide, scrolling_items: wide, circular: 'yes', orientation: 'horizontal'
+      });
+    }
+  },
+
   renderList: function() {
     var packCol = '';
     if (this.state.pchoice === 'packs') {
@@ -213,7 +231,22 @@ var PacksList = React.createClass({
       packList.push(<div className={'als-item'} key={'packprev' + pack.id} onClick={this.imageClick}><div style={itemStyle} data-id={pack.id}></div></div> )
     }
     return (
-      <AlsList arbCount={this.state.arbCount} packs={packList} />
+      <div>
+        <div className='als-container' id='packs-index' ref='packsIndex'>
+          <span className='als-prev arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
+          <div className='als-viewport' ref="viewport" style={{display: 'none'}}>
+            <div className='als-wrapper'>
+              <ReactCSSTransitionGroup transitionName='pack-list'>
+                {packList}
+              </ReactCSSTransitionGroup>
+            </div>
+          </div>
+          <span className='als-next arrow'><img src='https://s3-us-west-1.amazonaws.com/asco-jkh/layout/Arrow.svg' alt='prev' title='previous' /></span>
+
+
+        </div>
+      </div>
     )
   },
 
@@ -223,12 +256,9 @@ var PacksList = React.createClass({
     var downloadspack = this.state.downloadspack;
     var createdpack = this.state.createdpack;
     var updatedpack = this.state.updatedpack;
-    var arbCount = this.state.arbCount + 1;
 
     this.setState({ pchoice: sortType + 'packs', arbCount: arbCount });
   },
-
-
 
   renderSortsList: function () {
     var sorts = ['Title', 'Downloads', 'Created', 'Updated'];
