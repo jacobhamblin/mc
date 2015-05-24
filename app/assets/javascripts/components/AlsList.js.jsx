@@ -4,7 +4,7 @@ var AlsList = React.createClass({
   },
 
   componentDidUpdate: function() {
-     var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
+    var packsIndex = $(React.findDOMNode(this.refs.packsIndex));
     var viewport = $(React.findDOMNode(this.refs.viewport));
 
     var wide = (Math.floor(( window.innerWidth * 0.9 ) / 180 ) - 1);

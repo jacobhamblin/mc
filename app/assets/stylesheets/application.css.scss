@@ -595,3 +595,59 @@ button {
 		}
 	}
 }
+
+$em: 1;
+$color: #fff;
+$close-color: #fff;
+
+$bar: $em / 3;
+$bar-scale: ($em * 1.41 - $bar) / $em;
+$x-translate: $em * 0.22;
+$y-translate: $em * 0.237;
+
+.menu-icon {
+  cursor: pointer;
+  position: fixed;
+	top: 20px;
+	right: 20px;
+  display: inline-block;
+  height: $em * 1em;
+  width: $em * 1em;
+	transition: -webkit-filter .3s ease;
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: $em * 1em;
+    height: $bar * 1em;
+    left: 0;
+    background-color: $color;
+    transition-duration: 0.5s;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+
+  &.is-active {
+    &:before,
+    &:after {
+      background-color: $close-color;
+    }
+
+    &:before {
+      transform: rotateZ(-135deg) scaleX($bar-scale) translate($x-translate * -1em, $y-translate * -1em);
+    }
+
+    &:after {
+      transform: rotateZ(135deg) scaleX($bar-scale) translate($x-translate * -1em, $y-translate * 1em);
+    }
+		&:hover {
+			-webkit-filter: invert(0.6);
+		}
+  }
+	&:hover {
+		-webkit-filter: invert(0.6);
+	}
+}

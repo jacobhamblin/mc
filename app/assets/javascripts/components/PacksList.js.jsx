@@ -241,7 +241,6 @@ var PacksList = React.createClass({
   },
 
   render: function() {
-
     var self = this;
 
     var packs = this.state.packs.map(function(p){
