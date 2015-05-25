@@ -259,7 +259,7 @@ var PacksList = React.createClass({
     var createdpack = this.state.createdpack;
     var updatedpack = this.state.updatedpack;
 
-    this.setState({ pchoice: sortType + 'packs', arbCount: arbCount });
+    this.setState({ pchoice: sortType + 'packs' });
   },
 
   renderSortsList: function () {

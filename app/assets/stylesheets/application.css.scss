@@ -622,6 +622,8 @@ $y-translate: $em * 0.237;
   }
 
   &.is-active {
+		-webkit-filter: invert(1.0);
+
     &:before,
     &:after {
       background-color: $close-color;
@@ -635,12 +637,9 @@ $y-translate: $em * 0.237;
       transform: rotateZ(135deg) scaleX($bar-scale) translate($x-translate * -1em, $y-translate * 1em);
     }
 		&:hover {
-			-webkit-filter: invert(0.6);
+			-webkit-filter: invert(0.0);
 		}
   }
-	&:hover {
-		-webkit-filter: invert(0.6);
-	}
 }
 
 .nav-menu {
@@ -652,12 +651,17 @@ $y-translate: $em * 0.237;
 	position: fixed;
 	z-index: 2;
 	ul {
+		margin: 8px 0;
 		a {
-			margin: 0 10px;
-			color: #fff;
+			transition: color .3s ease;
+			margin: 0 20px;
+			color: #000;
 			text-decoration: none;
 			font-size: 10px;
 			text-transform: uppercase;
+			&:hover {
+				color: #fff;
+			}
 		}
 	}
 }
