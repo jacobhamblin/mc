@@ -2,8 +2,13 @@
 
 <div id="content"></div>
 
-<%= link_to "sign out", "delete", class: 'sign-out' %>
-
 <i class="menu-icon"></i>
+<div class="nav-menu" style="display: none">
+  <ul class="menu-items">
+    <a href='/new' class='new-pack-link'>New Pack</a>
+    <a href='/' class='packs-list-link'>Packs List</a>
+    <%= link_to "sign out", "delete", class: 'sign-out' %>
+  </ul>
+</div>
 
 <%= react_router 'routes', 'HistoryLocation' %>

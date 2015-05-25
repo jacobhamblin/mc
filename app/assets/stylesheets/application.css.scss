@@ -264,16 +264,6 @@ button {
 	}
 }
 
-.sign-out {
-	position: absolute;
-	color: #fff;
-	text-decoration: none;
-	font-size: 10px;
-	text-transform: uppercase;
-	top: calc(19vh - 10px);
-	right: 7.5%;
-}
-
 .sorts {
 	position: absolute;
 	color: #fff;
@@ -614,6 +604,7 @@ $y-translate: $em * 0.237;
   height: $em * 1em;
   width: $em * 1em;
 	transition: -webkit-filter .3s ease;
+	z-index: 3;
 
   &:before,
   &:after {
@@ -649,5 +640,24 @@ $y-translate: $em * 0.237;
   }
 	&:hover {
 		-webkit-filter: invert(0.6);
+	}
+}
+
+.nav-menu {
+	height: 37px;
+	width: 40vw;
+	background-color: #999;
+	top: 10px;
+	right: 10px;
+	position: fixed;
+	z-index: 2;
+	ul {
+		a {
+			margin: 0 10px;
+			color: #fff;
+			text-decoration: none;
+			font-size: 10px;
+			text-transform: uppercase;
+		}
 	}
 }
