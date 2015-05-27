@@ -590,7 +590,7 @@ button {
 	}
 }
 
-$em: 1;
+$em: .75;
 $color: #fff;
 $close-color: #fff;
 
@@ -602,8 +602,8 @@ $y-translate: $em * 0.237;
 .menu-icon {
   cursor: pointer;
   position: fixed;
-	top: 20px;
-	right: 20px;
+	top: 22px;
+	right: 22px;
   display: inline-block;
   height: $em * 1em;
   width: $em * 1em;
@@ -655,14 +655,14 @@ $y-translate: $em * 0.237;
 	position: fixed;
 	z-index: 2;
 	ul {
-		margin: 10px 0;
+		margin: 9px 0;
 		div {
 			a {
 				transition: color .3s ease;
 				margin: 0 20px;
 				color: #000;
 				text-decoration: none;
-				font-size: 16px;
+				font-size: 12px;
 				font-weight: bold;
 				text-transform: uppercase;
 				&:hover {
