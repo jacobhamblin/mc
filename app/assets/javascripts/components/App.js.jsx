@@ -6,6 +6,9 @@ var App = React.createClass({
       $(this).toggleClass('is-active');
       $(".nav-menu").animate({width:'toggle'},350);
     });
+    $('.nav-link').hover(function () {
+      $(event.target.children[0]).toggleClass('is-active');
+    });
 
     return (
       <div>

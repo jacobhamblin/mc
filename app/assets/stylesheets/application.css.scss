@@ -656,18 +656,28 @@ $y-translate: $em * 0.237;
 	z-index: 2;
 	ul {
 		margin: 9px 0;
-		div {
-			a {
-				transition: color .3s ease;
-				margin: 0 20px;
-				color: #000;
-				text-decoration: none;
-				font-size: 12px;
-				font-weight: bold;
-				text-transform: uppercase;
-				&:hover {
-					color: #fff;
+		a {
+			div {
+				margin-top: 3px;
+				background-color: #fff;
+				height: 2px;
+				width: 0%;
+				transition: width .3s ease;
+				&.is-active {
+					width: 100%;
 				}
+			}
+			display: inline-block;
+			transition: color .3s ease;
+			margin: 0 20px;
+			color: #000;
+			text-decoration: none;
+			font-size: 12px;
+			font-weight: bold;
+			text-transform: uppercase;
+			height: 12px;
+			&:hover {
+				color: #fff;
 			}
 		}
 	}
