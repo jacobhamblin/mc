@@ -82,30 +82,21 @@ PackShow = React.createClass({
 
   renderTags: function (packTags, subpackTags) {
     if (subpackTags) {
-      var tags = [];
-      for (var i = 0; i < subpackTags.length; i++) {
-        var tag = subpackTags[i].title;
-        tags.push(<li>#{tag}</li>);
-      };
-
-      return (
-        <ul>
-          {tags}
-        </ul>
-      )
+      var collection = subpackTags;
     } else if (packTags) {
-      var tags = [];
-      for (var i = 0; i < packTags.all_tags.length; i++) {
-        var tag = packTags.all_tags[i];
-        tags.push(<li>#{tag}</li>);
-      };
-
-      return (
-        <ul>
-          {tags}
-        </ul>
-      )
+      var collection = packTags;
     }
+    var tags = [];
+    for (var i = 0; i < collection.all_tags.length; i++) {
+      var tag = collection.all_tags[i].title;
+      tags.push(<li data-id={collection.all_tags[i].id} onClick={this.tagClick} >#{tag}</li>);
+    };
+
+    return (
+      <ul>
+        {tags}
+      </ul>
+    )
   },
 
   subpackClick: function (id) {
@@ -129,6 +120,10 @@ PackShow = React.createClass({
       this.state.subpack = 0;
     }
 
+  },
+
+  tagClick: function() {
+    this.props.tagClick(event.target.textContent);
   },
 
   render: function() {

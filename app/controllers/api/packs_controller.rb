@@ -21,6 +21,8 @@ class Api::PacksController < ApplicationController
       @packs = Pack.order(:updated_at).limit(30)
     when "updated desc"
       @packs = Pack.order(updated_at: :desc).limit(30)
+    when /tag-(\w+)/
+      @packs = Pack.joins(:tags).where('tags.title ~ ?', $1).limit(30)
     else
       @packs = Pack.all
     end

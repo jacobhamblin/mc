@@ -212,6 +212,7 @@ var PacksList = React.createClass({
   },
 
   renderList: function() {
+    debugger
     var packCol = '';
     if (this.state.pchoice === 'packs') {
       packCol = this.state.packs;
@@ -223,6 +224,8 @@ var PacksList = React.createClass({
       packCol = this.state.createdpacks;
     } else if (this.state.pchoice === 'updatedpacks' ) {
       packCol = this.state.updatedpacks;
+    } else if (this.state.pchoice === 'tag') {
+      packCol = this.state.tagPacks;
     }
     var packList = [];
     for (var i = 0; i < packCol.length; i++) {
@@ -262,6 +265,44 @@ var PacksList = React.createClass({
     this.setState({ pchoice: sortType + 'packs' });
   },
 
+  tagClick: function(tag) {
+    console.log('tag ' + tag + ' was clicked');
+
+    var self = this;
+    var url = 'api/packs';
+
+    $.getJSON(url, {sort: 'tag-' + tag}, function(result) {
+
+      if (!result || !result.packs || !result.packs.length){
+        return;
+      }
+
+      var tagPacks = result.packs.map(function(p){
+
+        return {
+          id: p.id,
+          title: p.title,
+          url: p.url,
+          description: p.description,
+          createdAt: p.createdAt,
+          updatedAt: p.updatedAt,
+          author: p.author,
+          subpacks: p.subpacks,
+          images: p.all_images,
+          prev: p.prev,
+          titleJoined: p.title.replace(/\s+/g, ''),
+          downloads: p.downloads,
+          tags: p.tags,
+          all_tags: p.all_tags
+        };
+
+      });
+
+      self.setState({ pchoice: 'tag', tagPacks: tagPacks });
+    });
+
+  },
+
   renderSortsList: function () {
     var sorts = ['Title', 'Downloads', 'Created', 'Updated'];
     sortOptions = [];
@@ -297,7 +338,7 @@ var PacksList = React.createClass({
           </div>
           {this.renderList()}
           <div className='packshow-container'>
-            <PackShow pack={ this.state.selectedPack } />
+            <PackShow pack={ this.state.selectedPack } tagClick={this.tagClick} />
           </div>
         </div>
       );
