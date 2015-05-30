@@ -212,7 +212,6 @@ var PacksList = React.createClass({
   },
 
   renderList: function() {
-    debugger
     var packCol = '';
     if (this.state.pchoice === 'packs') {
       packCol = this.state.packs;

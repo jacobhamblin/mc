@@ -84,12 +84,12 @@ PackShow = React.createClass({
     if (subpackTags) {
       var collection = subpackTags;
     } else if (packTags) {
-      var collection = packTags;
+      var collection = packTags.all_tags;
     }
     var tags = [];
-    for (var i = 0; i < collection.all_tags.length; i++) {
-      var tag = collection.all_tags[i].title;
-      tags.push(<li data-id={collection.all_tags[i].id} onClick={this.tagClick} >#{tag}</li>);
+    for (var i = 0; i < collection.length; i++) {
+      var tag = collection[i].title;
+      tags.push(<li data-id={collection[i].id} onClick={this.tagClick} >#{tag}</li>);
     };
 
     return (
