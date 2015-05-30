@@ -2,8 +2,9 @@ var PackNew = React.createClass({
 
   render: function () {
     return (
-      <div>
-        <h3>lajldkajsd</h3>
+      <div className='packnew'>
+        <div className='packnew-background' />
+        New Pack
       </div>
 
     )

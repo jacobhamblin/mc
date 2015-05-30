@@ -683,3 +683,14 @@ $y-translate: $em * 0.237;
 		}
 	}
 }
+
+.packnew-background {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	position: absolute;
+	display: block;
+	z-index: -1000;
+	background-color: #636363;
+}
