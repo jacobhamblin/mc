@@ -92,6 +92,8 @@ table {
 
 body {
   font-family: 'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
@@ -244,11 +246,15 @@ button {
 		h4 {
 			font-size: 2em;
 			letter-spacing: .68em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 		}
 
 		h3 {
 			font-size: 4em;
 			letter-spacing: 0.049em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 		}
 	}
 
@@ -261,6 +267,8 @@ button {
 	  margin-right: auto;
 	  display: block;
 	  padding: 5px 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 }
 
@@ -282,6 +290,8 @@ button {
 			padding: 0 15px;
 			cursor: pointer;
 			transition: color .3s ease;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
 			&:hover {
 				color: #fff;
 			}
@@ -492,6 +502,11 @@ button {
 		height: 100%;
 		vertical-align: middle;
 		position: absolute;
+		-webkit-filter: brightness(0.7);
+		transition: -webkit-filter .35s ease;
+		&:hover {
+			-webkit-filter: brightness(1.0);
+		}
 	}
 	.right {
 		width: 49.5%;
@@ -558,6 +573,8 @@ button {
 					text-transform: uppercase;
 					cursor: pointer;
 					font-style: italic;
+					-webkit-font-smoothing: antialiased;
+					-moz-osx-font-smoothing: grayscale;
 				}
 			}
 		}
