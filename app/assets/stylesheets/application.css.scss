@@ -560,6 +560,11 @@ button {
 					color: #fff;
 					text-decoration: none;
 					text-transform: uppercase;
+					opacity: 0.7;
+					transition: opacity .35s ease;
+					&:hover {
+						opacity: 1.0
+					}
 				}
 			}
 			.subpacks {
