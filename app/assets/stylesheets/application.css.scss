@@ -585,6 +585,10 @@ button {
 					font-style: italic;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
+					transition: all .2s ease;
+					&:hover {
+						font-size: 11px;
+					}
 				}
 			}
 		}
