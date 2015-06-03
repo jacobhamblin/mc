@@ -1,6 +1,13 @@
 class Api::PacksController < ApplicationController
   def create
     @pack = Pack.new(pack_params)
+
+    if @pack.save
+      return 'success'
+    else
+      flash.now['errors'] = @pack.errors.full_messages
+      return 'failure'
+    end
   end
 
   def index
@@ -37,6 +44,6 @@ class Api::PacksController < ApplicationController
 
   private
   def pack_params
-    params.require(:pack).permit(:title, :description, :url)
+    params.require(:pack).permit(:title, :description, :url, :prev)
   end
 end
