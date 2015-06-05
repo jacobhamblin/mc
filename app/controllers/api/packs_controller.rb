@@ -37,6 +37,12 @@ class Api::PacksController < ApplicationController
     render :index
   end
 
+  def destroy
+    @pack = Pack.find(params[:id])
+    @pack.try(:destroy)
+    render json: {}
+  end
+
   def show
     @pack = Pack.find(params[:id])
     render :show
