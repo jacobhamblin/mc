@@ -1,15 +1,21 @@
 var PackNew = React.createClass({
 
   render: function () {
+    $('.form-container-outer').hover(function () {
+      debugger
+      $('.black-overlay.new').toggleClass('is-active');
+    });
+
     return (
 
       <div className='packnew'>
         <div class="errors newpack-errors">
         </div>
         <div className='packnew-background' style={{backgroundImage: window.bg}} />
+        <div className='black-overlay new' />
         <div className='form-container-outer'>
           <div className='form-container'>
-            <div className='form-title'>
+            <div className='form-title new'>
               <h4>Minecraft</h4>
               <h3>Customizer</h3>
             </div>
@@ -25,7 +31,7 @@ var PackNew = React.createClass({
               <input type="submit" value="Create Pack" className="submit pack" tabindex="5" /><br />
             </form>
           </div>
-        </div>  
+        </div>
       </div>
 
     )

@@ -272,6 +272,10 @@ button {
 	}
 }
 
+.form-title.new {
+	cursor: auto;
+}
+
 .sorts {
 	position: absolute;
 	color: #999;
@@ -681,7 +685,7 @@ $y-translate: $em * 0.237;
 .nav-menu {
 	height: 37px;
 	width: 40vw;
-	background-color: #999;
+	background-color: #ccc;
 	top: 10px;
 	right: 10px;
 	position: fixed;
@@ -753,13 +757,37 @@ $y-translate: $em * 0.237;
 }
 
 .form-container {
-	padding: 15px;
+	padding: 25px 15px 15px 15px;
 	margin: 0 auto;
 	position: relative;
 	width: 308px;
-	background: #000;
+	background: #444;
+	transition: background .3s ease;
+	&:hover {
+		background: #000;
+	}
 }
 
 .form-container-outer {
 	margin-top: 20vh;
+}
+
+.black-overlay.new {
+	background-color: #000;
+	position: absolute;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	display: block;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -999;
+	opacity: 0.0;
+	transition: opacity .3s ease;
+	&.is-active {
+		opacity: 0.5;
+	}
 }
