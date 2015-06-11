@@ -237,27 +237,6 @@ button {
   position: absolute;
 	margin: auto;
 
-	.title {
-		font-family: 'mc-thick';
-		color: #fff;
-		text-transform: uppercase;
-		cursor: pointer;
-
-		h4 {
-			font-size: 2em;
-			letter-spacing: .68em;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		}
-
-		h3 {
-			font-size: 4em;
-			letter-spacing: 0.049em;
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-		}
-	}
-
 	.errors {
 	  font-size: .8rem;
 	  color: #ababae;
@@ -267,6 +246,27 @@ button {
 	  margin-right: auto;
 	  display: block;
 	  padding: 5px 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+.form-title {
+	font-family: 'mc-thick';
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	h4 {
+		font-size: 2em;
+		letter-spacing: .68em;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	h3 {
+		font-size: 4em;
+		letter-spacing: 0.049em;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
@@ -729,10 +729,37 @@ $y-translate: $em * 0.237;
 .ffield.pack {
 	margin: 10px 0;
 	display: block;
+	margin-left: 5px;
 }
 
 .submit.pack {
 	width: 298px;
 	height: 37px;
 	margin: 10px 0;
+	margin-left: 5px;
+	text-transform: uppercase;
+	border: 1px solid #fff;
+	background: #fff;
+	color: #222;
+}
+
+.ffield.pack.description {
+	font-family: 'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	resize: vertical;
+	max-height: 300px;
+	min-height: 50px;
+}
+
+.form-container {
+	padding: 15px;
+	margin: 0 auto;
+	position: relative;
+	width: 308px;
+	background: #000;
+}
+
+.form-container-outer {
+	margin-top: 20vh;
 }
