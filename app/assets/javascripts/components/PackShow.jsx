@@ -19,7 +19,7 @@ PackShow = React.createClass({
   renderThumbnails: function() {
     if (this.state.subpack) {
       var theImages = [];
-      for (var i = 0; i  < this.state.subpack.images.length; i++) {
+      for (var i = 0; i < this.state.subpack.images.length; i++) {
         var image = this.state.subpack.images[i];
         theImages.push(
           <div className='thumbnail' data-id={image.id} style={{backgroundImage: 'url(' + image.url + ')'}} onClick={this.thumbnailClick}></div>
