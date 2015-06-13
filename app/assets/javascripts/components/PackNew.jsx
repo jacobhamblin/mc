@@ -1,11 +1,12 @@
 var PackNew = React.createClass({
-
-  render: function () {
+  componentDidMount: function () {
     $('.form-container').hover(function () {
       debugger
       $('.black-overlay.new').toggleClass('is-active');
     });
+  },
 
+  render: function () {
     return (
 
       <div className='packnew'>
