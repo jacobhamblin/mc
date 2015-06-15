@@ -7,6 +7,8 @@ var PackNew = React.createClass({
   },
 
   render: function () {
+    var csrf_token = $("meta")[1].content;
+
     return (
 
       <div className='packnew'>
@@ -20,10 +22,15 @@ var PackNew = React.createClass({
               <h4>Minecraft</h4>
               <h3>Customizer</h3>
             </div>
+
+
             <div className='form-title-new-pack'>
               New Pack
             </div>
             <form classname='newpack-form' action='api/packs' method='POST'>
+
+              <input type="hidden" name="authenticity_token" value={csrf_token} />
+
               <input type="text" name="pack[title]" placeholder="Title" className="ffield pack title" tabindex="1" /><br />
 
               <textarea name="pack[description]" placeholder="Description" className="ffield pack description" tabindex="2" /><br />
