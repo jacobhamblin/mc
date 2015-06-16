@@ -3,6 +3,7 @@ var PackNew = React.createClass({
     $('.form-container').hover(function () {
       $('.black-overlay.new').toggleClass('is-active');
     });
+    $('.form-container').draggable();
   },
 
   render: function () {
