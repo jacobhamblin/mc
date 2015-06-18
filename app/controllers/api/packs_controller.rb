@@ -1,12 +1,12 @@
 class Api::PacksController < ApplicationController
   def create
     @pack = Pack.new(pack_params)
+    @pack.author_id = current_user.id
 
     if @pack.save
-      return 'success'
+      render json: @pack
     else
-      flash.now['errors'] = @pack.errors.full_messages
-      return 'failure'
+      render json: @pack.errors.full_messages, staus: :unprocessable_entity
     end
   end
 
